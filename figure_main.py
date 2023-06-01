@@ -2,15 +2,22 @@
 import figure
 # [fill this line]
 
-myline = figure.line(10)
+myline = figure.line(-1, 1)
 
-square = figure.area_square(myline.get_length())
-print(square)
+try:
+    circle = figure.area_right_triangle(myline.get_width(), myline.get_height())
+    print(circle)
+except ValueError:
+    print("please input positive number for width and heigth")
 
-myline.set_length(20)
-regular_triangle = figure.area_regular_triangle(myline.get_length())
-print(regular_triangle)
+try:
+    regular_triangle = figure.area_ellipse(myline.get_width(), myline.get_height())
+    print(regular_triangle)
+except ValueError:
+    print("please input positive number for width and heigth")
 
-myline.set_length(30)
-circle = figure.area_circle(myline.get_length())
-print(circle)
+try:
+    square = figure.area_rectangle(myline.get_width(), myline.get_height())
+    print(square)
+except ValueError:
+    print("please input positive number for width and heigth")
